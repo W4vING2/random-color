@@ -27,7 +27,7 @@ export default function GradientPage() {
 		chooseValue(2, setColors)
 	}, [])
 	return (
-		<div className='relative flex flex-col gap-2'>
+		<div className='relative flex flex-col gap-2 z-[-1]'>
 			<div className='flex flex-col md:flex-row gap-2'>
 				<ColorCard color={colors.colorOne} />
 				<ColorCard color={colors.colorTwo} />

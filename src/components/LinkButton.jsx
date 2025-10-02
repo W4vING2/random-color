@@ -1,13 +1,15 @@
 import { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 
-function LinkButton({ to }) {
+function LinkButton({ to, onClick }) {
 	return (
 		<>
 			<NavLink
+				onClick={onClick}
 				className={({ isActive }) => {
-					const borderBottom = isActive ? 'border-b-2' : ''
-					return `mt-5 text-blue-500 font-bold text-xl mx-2 border-blue-500 ${borderBottom}`
+					return `mt-5 text-blue-500 font-bold text-xl mx-2 ${
+						isActive ? 'text-blue-950' : 'text-blue-500'
+					}`
 				}}
 				to={to}
 			>

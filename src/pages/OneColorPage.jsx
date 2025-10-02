@@ -21,7 +21,7 @@ export default function OneColorPage() {
 	}
 
 	return (
-		<div className='relative flex flex-col'>
+		<div className='relative flex flex-col z-[-1]'>
 			<ColorCard color={color} />
 
 			<div className='w-full flex flex-row items-center gap-2 mt-4'>
