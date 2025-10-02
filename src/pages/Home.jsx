@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
 export default function Home() {
-	const texts = useMemo(() => ['TailwindCSS', 'React.js', 'Cursor AI'], [])
+	const texts = useMemo(
+		() => ['TailwindCSS', 'React', 'Javascript', 'Cursor AI'],
+		[]
+	)
 	const [index, setIndex] = useState(0)
 	const [displayText, setDisplayText] = useState('')
 	const [subIndex, setSubIndex] = useState(0)

@@ -27,7 +27,7 @@ export default function Layout() {
 					className={
 						open
 							? 'flex flex-col fixed inset-0 h-[100vh] w-[100vw] bg-blue-950 items-center justify-center z-90'
-							: 'hidden md:flex'
+							: 'hidden md:flex mt-[-20px]'
 					}
 				>
 					<LinkButton onClick={() => setOpen(false)} to='/home' />
@@ -35,7 +35,9 @@ export default function Layout() {
 					<LinkButton onClick={() => setOpen(false)} to='/one-color' />
 				</div>
 			</header>
-			<Outlet />
+			<main className={open ? 'hidden' : 'block'}>
+				<Outlet />
+			</main>
 		</>
 	)
 }
