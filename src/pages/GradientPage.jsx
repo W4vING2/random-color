@@ -1,14 +1,13 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ButtonGenerate from '../components/ButtonGenerate'
 import FavButton from '../components/FavButton'
 import ColorCard from '../components/colorCard'
+import { useIndex } from '../hooks/useIndex'
 import chooseValue from '../utils/generateColor'
 
 export default function GradientPage() {
-	const [colors, setColors] = useState({
-		colorOne: null,
-		colorTwo: null,
-	})
+	const [colors, setColors] = useState([])
+	const { indexItem, setIndexItem } = useIndex()
 
 	const addToFav = () => {
 		const pastData = localStorage.getItem('favGradient')
@@ -23,14 +22,18 @@ export default function GradientPage() {
 		}
 	}
 
+	useEffect(() => {
+		setIndexItem(false)
+	}, [colors, setIndexItem])
+
 	const handleGenerate = useCallback(() => {
-		chooseValue(2, setColors)
-	}, [])
+		chooseValue(2, setColors, indexItem)
+	}, [indexItem])
 	return (
 		<div className='relative flex flex-col gap-2 z-1'>
 			<div className='flex flex-col md:flex-row gap-2'>
-				<ColorCard color={colors.colorOne} />
-				<ColorCard color={colors.colorTwo} />
+				<ColorCard color={colors[0] ? colors[0][0] : 'ffffff'} />
+				<ColorCard color={colors[0] ? colors[0][1] : 'ffffff'} />
 			</div>
 			<div className='w-[100%] flex flex-nowrap gap-x-5'>
 				<ButtonGenerate onClick={handleGenerate} title='Generate Gradient' />

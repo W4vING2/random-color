@@ -17,6 +17,8 @@ function LinkButton({ to, onClick }) {
 					? 'HomePage'
 					: to === '/gradient'
 					? 'GradientPage'
+					: to === '/favorite'
+					? 'Favorite'
 					: 'OneColorPage'}
 			</NavLink>
 		</>

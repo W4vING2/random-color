@@ -33,6 +33,7 @@ export default function Layout() {
 					<LinkButton onClick={() => setOpen(false)} to='/home' />
 					<LinkButton onClick={() => setOpen(false)} to='/gradient' />
 					<LinkButton onClick={() => setOpen(false)} to='/one-color' />
+					<LinkButton onClick={() => setOpen(false)} to='/favorite' />
 				</div>
 			</header>
 			<main className={open ? 'hidden' : 'block'}>

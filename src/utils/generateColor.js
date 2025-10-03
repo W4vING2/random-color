@@ -1,4 +1,4 @@
-const generateColor = setState => {
+const generateColor = () => {
 	const array = []
 
 	for (let i = 0; i < 6; i++) {
@@ -34,24 +34,25 @@ const generateColor = setState => {
 		generatedColor += String(el)
 	})
 
-	setState(generatedColor)
-
 	return generatedColor
 }
 
-const chooseValue = (value, setState) => {
+const chooseValue = (value, setState, index) => {
 	const arrayOfColors = []
 	for (let i = 0; i < value; i++) {
-		const number = generateColor(setState)
+		const number = generateColor()
 		arrayOfColors.push(number)
 	}
 	if (value === 1) {
-		setState(arrayOfColors[0])
+		setState(arrayOfColors)
 	} else {
-		setState({
-			colorOne: arrayOfColors[0],
-			colorTwo: arrayOfColors[1],
-		})
+		if (index) {
+			setState([[arrayOfColors[0], arrayOfColors[1]]])
+			console.log('index - 1')
+		} else {
+			setState([arrayOfColors])
+			console.log('index none 1')
+		}
 	}
 }
 
