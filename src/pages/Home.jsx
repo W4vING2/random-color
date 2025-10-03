@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 export default function Home() {
-	const texts = useMemo(
-		() => ['TailwindCSS', 'React', 'Javascript', 'Cursor AI'],
-		[]
-	)
+	const texts = useMemo(() => ['TailwindCSS', 'React', 'Javascript', 'CSS'], [])
 	const [index, setIndex] = useState(0)
 	const [displayText, setDisplayText] = useState('')
 	const [subIndex, setSubIndex] = useState(0)
@@ -37,10 +34,10 @@ export default function Home() {
 
 	return (
 		<>
-			<h1 className='text-2xl font-bold text-blue-500 bg-blue-950 p-5 rounded-md'>
+			<h1 className='text-2xl font-bold text-blue-500 bg-blue-950 p-5 rounded-md max-w-[90vw]'>
 				Welcome to colors generate app
 			</h1>
-			<p className='text-xl font-bold text-white mt-7 bg-blue-950 rounded-md p-5'>
+			<p className='max-w-[90vw] text-xl font-bold text-white mt-7 bg-blue-950 rounded-md p-5'>
 				{displayText}
 				<span className='text-white/50 w-1 h-10 z-10'>|</span>
 			</p>

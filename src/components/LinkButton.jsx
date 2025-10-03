@@ -7,8 +7,8 @@ function LinkButton({ to, onClick }) {
 			<NavLink
 				onClick={onClick}
 				className={({ isActive }) => {
-					return `mt-5 text-blue-500 font-bold text-xl mx-2 transition-colors max-h-[50px] ${
-						isActive ? 'text-blue-900' : 'text-blue-500'
+					return `mt-5 font-bold text-xl mx-2 transition-colors max-h-[50px] hover:text-gray-400 duration-500 ${
+						isActive ? 'text-gray-500' : 'text-white'
 					}`
 				}}
 				to={to}

@@ -1,17 +1,15 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import ButtonGenerate from '../components/ButtonGenerate'
 import FavButton from '../components/FavButton'
 import ColorCard from '../components/colorCard'
-import { useIndex } from '../hooks/useIndex'
 import chooseValue from '../utils/generateColor'
 
 export default function GradientPage() {
 	const [colors, setColors] = useState([])
-	const { indexItem, setIndexItem } = useIndex()
 
 	const addToFav = () => {
 		const pastData = localStorage.getItem('favGradient')
-		if (!pastData) localStorage.setItem('favGradient', JSON.stringify(colors))
+		if (!pastData) localStorage.setItem('favGradient', JSON.stringify([colors]))
 		else {
 			const parsedData = JSON.parse(pastData)
 			const existingColors = Array.isArray(parsedData)
@@ -22,13 +20,9 @@ export default function GradientPage() {
 		}
 	}
 
-	useEffect(() => {
-		setIndexItem(false)
-	}, [colors, setIndexItem])
-
 	const handleGenerate = useCallback(() => {
-		chooseValue(2, setColors, indexItem)
-	}, [indexItem])
+		chooseValue(2, setColors)
+	}, [])
 	return (
 		<div className='relative flex flex-col gap-2 z-1'>
 			<div className='flex flex-col md:flex-row gap-2'>

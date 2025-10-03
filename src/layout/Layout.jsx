@@ -6,10 +6,21 @@ export default function Layout() {
 	const [open, setOpen] = useState(false)
 	return (
 		<>
-			<header className='fixed inset-0 flex justify-around mt-5 pt-2'>
+			<header
+				className='fixed inset-0 flex justify-around pt-7 max-w-[100vw] md:max-h-[10vh] bg-blue-950 text-white'
+				style={
+					open === false
+						? {
+								maxHeight: '10vh',
+						  }
+						: {
+								maxHeight: '100vh',
+						  }
+				}
+			>
 				<h1 className='font-bold text-2xl mr-25'>Random Colors</h1>
 				<div
-					className='h-[30px] w-[30px] absolute right-10 top-3 flex flex-col gap-y-1 cursor-cell z-95 md:hidden'
+					className='h-[30px] w-[30px] absolute right-10 top-8 flex flex-col gap-y-1 cursor-cell z-95 md:hidden'
 					onClick={() => setOpen(false)}
 				>
 					<input
@@ -19,9 +30,9 @@ export default function Layout() {
 						onChange={() => setOpen(!open)}
 						checked={open}
 					/>
-					<span className='w-5 bg-black h-1 block rounded-md peer-checked:rotate-45 transition-all peer-checked:translate-y-[4px]'></span>
-					<span className='w-5 bg-black h-1 block rounded-md peer-checked:hidden transition-all'></span>
-					<span className='w-5 bg-black h-1 block rounded-md peer-checked:rotate-135 transition-all peer-checked:translate-y-[-4px]'></span>
+					<span className='w-5 bg-white h-1 block rounded-md peer-checked:rotate-45 transition-all peer-checked:translate-y-[4px]'></span>
+					<span className='w-5 bg-white h-1 block rounded-md peer-checked:hidden transition-all'></span>
+					<span className='w-5 bg-white h-1 block rounded-md peer-checked:rotate-135 transition-all peer-checked:translate-y-[-4px]'></span>
 				</div>
 				<div
 					className={

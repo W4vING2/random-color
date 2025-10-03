@@ -37,7 +37,7 @@ const generateColor = () => {
 	return generatedColor
 }
 
-const chooseValue = (value, setState, index) => {
+const chooseValue = (value, setState) => {
 	const arrayOfColors = []
 	for (let i = 0; i < value; i++) {
 		const number = generateColor()
@@ -46,13 +46,7 @@ const chooseValue = (value, setState, index) => {
 	if (value === 1) {
 		setState(arrayOfColors)
 	} else {
-		if (index) {
-			setState([[arrayOfColors[0], arrayOfColors[1]]])
-			console.log('index - 1')
-		} else {
-			setState([arrayOfColors])
-			console.log('index none 1')
-		}
+		setState([arrayOfColors])
 	}
 }
 
