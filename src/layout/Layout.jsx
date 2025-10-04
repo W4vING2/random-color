@@ -45,6 +45,7 @@ export default function Layout() {
 					<LinkButton onClick={() => setOpen(false)} to='/gradient' />
 					<LinkButton onClick={() => setOpen(false)} to='/one-color' />
 					<LinkButton onClick={() => setOpen(false)} to='/favorite' />
+					<LinkButton onClick={() => setOpen(false)} to='/generate' />
 				</div>
 			</header>
 			<main className={open ? 'hidden' : 'block'}>

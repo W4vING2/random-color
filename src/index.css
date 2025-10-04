@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
+
+html {
+	font-family: 'Inter', sans-serif;
+}
 
 body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	background-color: #fff;
-	font-family: 'Poppins', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,4 +17,17 @@ body {
 	min-height: 100vh;
 	gap: 20px;
 	max-width: 100vw;
+}
+
+.anim-translate {
+	animation: anim-translate 2s ease;
+}
+
+@keyframes anim-translate {
+	0% {
+		translate: 0;
+	}
+	100% {
+		translate: 0 25px;
+	}
 }
