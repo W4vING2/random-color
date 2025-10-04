@@ -34,7 +34,7 @@ export default function Favorite() {
 							favGradient.map((el, index) => (
 								<div
 									key={index}
-									className='md:w-[200px] w-[160px] h-[100px] flex items-center justify-center rounded-xl md:mt-5 mt-2 relative'
+									className='md:w-[200px] xs:w-[160px] w-[130px] h-[100px] flex items-center justify-center rounded-xl md:mt-5 mt-2 relative'
 									style={{
 										backgroundImage: `linear-gradient(to right, #${el[0][0]}, #${el[0][1]})`,
 									}}

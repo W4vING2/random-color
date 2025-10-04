@@ -7,7 +7,7 @@ export default function Layout() {
 	return (
 		<>
 			<header
-				className='fixed inset-0 flex justify-around pt-7 max-w-[100vw] md:max-h-[10vh] bg-blue-950 text-white'
+				className='fixed inset-0 flex justify-around pt-5  xs:pt-7 max-w-[100vw] md:max-h-[10vh] bg-blue-950 text-white z-90'
 				style={
 					open === false
 						? {
@@ -20,7 +20,7 @@ export default function Layout() {
 			>
 				<h1 className='font-bold text-2xl mr-25'>Random Colors</h1>
 				<div
-					className='h-[30px] w-[30px] absolute right-10 top-8 flex flex-col gap-y-1 cursor-cell z-95 md:hidden'
+					className='h-[30px] w-[30px] absolute right-10 top-6 xs:top-8 flex flex-col gap-y-1 cursor-cell z-95 md:hidden'
 					onClick={() => setOpen(false)}
 				>
 					<input
