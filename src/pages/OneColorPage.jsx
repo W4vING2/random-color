@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react'
 import ButtonGenerate from '../components/ButtonGenerate'
+import ColorCard from '../components/ColorCard'
 import FavButton from '../components/FavButton'
 import Modal from '../components/Modal'
-import ColorCard from '../components/colorCard'
 import { useModal } from '../hooks/useModal'
 import chooseValue from '../utils/generateColor'
 
