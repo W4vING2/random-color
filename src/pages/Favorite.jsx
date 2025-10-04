@@ -11,12 +11,12 @@ export default function Favorite() {
 			<Typography text='Favorite Colors And Gradients:' />
 			<div className='flex justify-between md:min-w-[1200px] md:gap-x-20 max-w-[100vw] gap-x-2'>
 				<Suspense fallback={<div>Loading...</div>}>
-					<ul className='ml-5 md:ml-10 mt-10 flex flex-wrap items-start gap-x-2 md:gap-x-5 md:min-w-[45%]'>
+					<ul className='ml-5 md:ml-10 mt-10 flex flex-wrap items-start gap-x-2 lg:gap-x-5 min-w-[45%]'>
 						{favColors ? (
 							favColors.map((el, ind) => (
 								<div
 									key={ind}
-									className='md:w-[100px] md:h-[100px] w-[80px] h-[80px] flex items-center justify-center rounded-xl mt-2 relative'
+									className='md:w-[100px] md:h-[100px] w-[80px] h-[80px] flex items-center justify-center rounded-xl md:mt-2 mt-0 relative'
 									style={{
 										backgroundColor: `#${el}`,
 									}}
