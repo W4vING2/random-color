@@ -7,7 +7,7 @@ export default function Layout() {
 	return (
 		<>
 			<header
-				className='fixed inset-0 flex justify-around pt-5  xs:pt-7 max-w-[100vw] md:max-h-[10vh] bg-blue-950 text-white z-90'
+				className='fixed inset-0 flex justify-around pt-5  xs:pt-7 md:pt-7  max-w-[100vw] md:max-h-[10vh] bg-blue-950 text-white z-90'
 				style={
 					open === false
 						? {

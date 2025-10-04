@@ -1,37 +1,45 @@
-import { useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import Typography from '../components/Typography'
 
-export default function Home() {
+function Home() {
 	const texts = useMemo(() => ['TailwindCSS', 'React', 'Javascript', 'CSS'], [])
 	const [index, setIndex] = useState(0)
-	const [displayText, setDisplayText] = useState('')
 	const [subIndex, setSubIndex] = useState(0)
 	const [reverse, setReverse] = useState(false)
 
-	useEffect(() => {
+	const updateIndex = useCallback(() => {
+		setIndex(prev => (prev + 1) % texts.length)
+	}, [texts.length])
+
+	const updateSubIndex = useCallback(() => {
+		setSubIndex(prev => prev + (reverse ? -1 : 1))
+	}, [reverse])
+
+	const displayText = useMemo(() => {
+		return texts[index].substring(0, subIndex)
+	}, [texts, index, subIndex])
+
+	const checkConditions = useCallback(() => {
 		if (subIndex === texts[index].length + 1 && !reverse) {
 			setReverse(true)
-			return
+			return true
 		}
 		if (subIndex === 0 && reverse) {
 			setReverse(false)
-			setIndex(prev => (prev + 1) % texts.length)
+			updateIndex()
+			return true
+		}
+		return false
+	}, [subIndex, reverse, index, texts, updateIndex])
+
+	useEffect(() => {
+		if (checkConditions()) {
 			return
 		}
 
-		const timeout = setTimeout(
-			() => {
-				setSubIndex(prev => prev + (reverse ? -1 : 1))
-			},
-			reverse ? 100 : 200
-		)
-
+		const timeout = setTimeout(updateSubIndex, reverse ? 100 : 200)
 		return () => clearTimeout(timeout)
-	}, [subIndex, reverse, index, texts])
-
-	useEffect(() => {
-		setDisplayText(texts[index].substring(0, subIndex))
-	}, [subIndex, index, texts])
+	}, [subIndex, reverse, checkConditions, updateSubIndex])
 
 	return (
 		<>
@@ -43,3 +51,5 @@ export default function Home() {
 		</>
 	)
 }
+
+export default memo(Home)
