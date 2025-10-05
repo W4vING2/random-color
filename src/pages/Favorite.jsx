@@ -6,9 +6,19 @@ export default function Favorite() {
 	const colors = localStorage.getItem('favColors')
 	const favColors = colors ? colors.split(',') : ''
 	const favGradient = JSON.parse(localStorage.getItem('favGradient') || '[]')
+	const clearStorage = () => {
+		localStorage.clear()
+		window.location.reload()
+	}
 	return (
 		<div className='flex flex-col items-center justify-center max-w-[100vw] min-h-[100vh]'>
 			<Typography text='Favorite Colors And Gradients:' />
+			<button
+				className='text-xl font-bold bg-blue-950 p-3 rounded-md mt-5 text-blue-500 hover:bg-white hover:text-blue-950 transition-colors ease-in-out duration-300 hover:border-blue-950 hover:border-2 border-transparent hover:shadow-md'
+				onClick={clearStorage}
+			>
+				Clear Favorites
+			</button>
 			<div className='flex justify-between md:min-w-[1200px] md:gap-x-20 max-w-[100vw] gap-x-2'>
 				<Suspense fallback={<div>Loading...</div>}>
 					<ul className='ml-5 md:ml-10 mt-10 flex flex-wrap items-start gap-x-2 lg:gap-x-5 min-w-[45%]'>
