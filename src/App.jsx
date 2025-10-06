@@ -17,7 +17,7 @@ export default function App() {
 					<Route path='favorite' element={<Favorite />}></Route>
 					<Route path='one-color' element={<OneColorPage />}></Route>
 					<Route path='gradient' element={<GradientPage />}></Route>
-					<Route path='*' element={<Navigate to='/' replace />}></Route>
+					<Route path='*' element={<Navigate to='/home' replace />}></Route>
 				</Route>
 			</Routes>
 		</>
